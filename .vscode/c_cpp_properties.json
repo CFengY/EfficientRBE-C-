@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/mcl-lib/include",
+                // 1. 同时包含两个版本的路径（但可能冲突）
+                "${workspaceFolder}/BasicVersion/RBE-C++/include",
+                "${workspaceFolder}/EfficientVersion/RBE-C++/include"
+            ],
+            "compilerPath": "/usr/bin/g++",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,67 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "BasicVersion(C++): g++ build active file",
+            "command": "g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-std=c++17", // 使用C++17标准
+                "-I${workspaceFolder}/mcl-lib/include", // 添加mcl头文件路径
+                "-I${workspaceFolder}/BasicVersion/RBE-C++/include", // 添加RBE-C++头文件路径
+                "-L${workspaceFolder}/mcl-lib/lib", // 添加mcl库路径
+                "${workspaceFolder}/BasicVersion/RBE-C++/test.cpp", // 当前文件
+                "${workspaceFolder}/BasicVersion/RBE-C++/include/*.cpp", // 添加其他源文件
+                "-o",
+                "${workspaceFolder}/BasicVersion/RBE-C++/build/${fileBasenameNoExtension}", // 输出到build目录
+                "-lmcl", // 链接mcl库
+                "-lgmp", // 链接gmp库
+                "-lsqlite3", // 链接sqlite3库
+                "-pthread" // 链接pthread库
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}" // 在projects目录执行
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "EfficientVersion(C++): g++ build active file",
+            "command": "g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-std=c++17", // 使用C++17标准
+                "-I${workspaceFolder}/mcl-lib/include", // 添加mcl头文件路径
+                "-I${workspaceFolder}/EfficientVersion/RBE-C++/include", // 添加RBE-C++头文件路径
+                "-L${workspaceFolder}/mcl-lib/lib", // 添加mcl库路径
+                "${workspaceFolder}/EfficientVersion/RBE-C++/main_full.cpp", // 测试完整流程
+                // "${workspaceFolder}/EfficientVersion/RBE-C++/test_2048_mode.cpp", // 测试2048合并流程
+                "${workspaceFolder}/EfficientVersion/RBE-C++/include/*.cpp", // 添加其他源文件
+                "-o",
+                "${workspaceFolder}/EfficientVersion/RBE-C++/build/${fileBasenameNoExtension}", // 输出到build目录
+                "-lmcl", // 链接mcl库
+                "-lgmp", // 链接gmp库
+                "-lsqlite3", // 链接sqlite3库
+                "-pthread" // 链接pthread库
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}" // 在projects目录执行
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                // "isDefault": true
+            }
+        },
+    ]
+}
